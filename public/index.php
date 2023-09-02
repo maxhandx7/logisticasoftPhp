@@ -34,6 +34,7 @@ if (isset($_SESSION["user_name"])) {
             <?php 
             if (isset($_SESSION["error"])) {
                 echo "<p style='color:red;'>".$_SESSION["error"]."</p>";
+                $_SESSION["error"] = "";
                 exit;
             }
             ?>
