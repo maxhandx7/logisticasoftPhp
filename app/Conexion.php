@@ -30,8 +30,8 @@ class Conexion
 			}
 		} catch (PDOException $e) {
 
-			$_SESSION["error"] = 'Credenciales incorrectas. Inténtalo de nuevo. ' . $e;
-			header("Location: ../public/index.php");
+			$_SESSION["error"] = 'Credenciales incorrectas. Inténtalo de nuevo. ';
+			header("Location: ../../public/index.php");
 			exit;
 		}
 	}
@@ -47,9 +47,7 @@ class Conexion
 			}
 			return false;
 		} catch (PDOException $e) {
-			var_dump('no entro');
-			die;
-			$_SESSION["error"] = 'Credenciales incorrectas. Inténtalo de nuevo. ' . $e;
+			$_SESSION["error"] = 'Credenciales incorrectas. Inténtalo de nuevo. ';
 			header("Location: ../public/index.php");
 			exit;
 		}

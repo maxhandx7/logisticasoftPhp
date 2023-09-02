@@ -107,7 +107,7 @@ class Consultas
             $con = null;
         } catch (PDOException $e) {
 
-            $_SESSION["error"] = 'Credenciales incorrectas. Inténtalo de nuevo. ' . $e;
+            $_SESSION["error"] = 'Error de conexion. ';
             header("Location: ../../resources/consultas/consultar.php");
             exit;
             $con = null;
