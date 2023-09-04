@@ -23,17 +23,17 @@ if (!isset($_SESSION["user_name"])) {
     <div class="containerConf">
         <h1>Configuración</h1>
         <form action="WELCOME.PHP" method="post">
-            <label for="clb">CLb:</label>
-            <input type="number" id="clb" name="clb" value="1" required>
+            <label for="clb">Cia:</label>     
+            <input type="number" id="clb" name="clb" value="1" placeholder="Codigo de Compania" required>
 
-            <label for="whscode">whsCod:</label>
-            <input type="text" id="whscode" name="whscode" value="ZFP" min="1" required>
+            <label for="Whscode">WhsCod:</label>
+            <input type="text" id="whscode" name="whscode" value="ZFP" min="1" placeholder="Bodega" required>
 
             <label for="montacarga">Montacarga:</label>
-            <input type="text" id="montacarga" value="MONTA-01" name="montacarga">
+            <input type="text" id="montacarga" value="MONTA-01" placeholder="Codigo de Montacarga" name="montacarga">
 
             <label for="cliente">Cliente:</label>
-            <input type="text" id="cliente" value="INTERLLANTAS" name="cliente">
+            <input type="text" id="cliente" value="INTERLLANTAS"  placeholder="Codigo de Cliente"  name="cliente">
             <button type="submit">Entrar</button>
         </form>
     </div>

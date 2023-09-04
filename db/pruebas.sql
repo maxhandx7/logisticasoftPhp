@@ -21,4 +21,10 @@
               'LEFT OUTER JOIN RESMSTEAN E ON E.RECURSO = S.RECURSO AND E.CLIENTE = S.CLIENTE ' +
               'LEFT OUTER JOIN INLOTES L ON L.RECURSO=S.RECURSO AND L.LOTE=S.LOTE ' +
               'WHERE E.CODEBAR = ''%s'' AND S.CONO = ''%s'' AND S.WHSCOD = ''%s'' ' ;
- 
+
+
+
+-- obtener el siguiente numero de secuencia o documento
+          --    SELECT  gen_ID(seqmst_GEN, 1) SEQNRO FROM RDB$DATABASE 
+ -- tabla de transacciones EL TIPO T = cambio de ubicacion , existen basicas y ampliadas
+  select * from intramst where tipomov = 'T'

@@ -17,12 +17,13 @@ if (!isset($_SESSION["resultado"])) {
     <title>Bienvenido <?php echo  $_SESSION["user_name"]; ?></title>
 </head>
 <style>
-    body.scroll-down .boton-flotante {
-        opacity: 1;
-    }
+  
 
     .opcion {
         display: flex;
+        background-color: #333;
+        color: #fff;
+        position: relative;
         justify-content: space-between;
         text-align: justify;
         align-items: center;
@@ -35,7 +36,8 @@ if (!isset($_SESSION["resultado"])) {
     a {
 
         padding: 2%;
-        border: 1px solid #007bff;
+        color: white;
+        background-color: red;
         border-radius: 4px;
         cursor: pointer;
         text-decoration: none;
@@ -67,23 +69,10 @@ if (!isset($_SESSION["resultado"])) {
         color: #666;
     }
 
-    .boton-flotante {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        text-decoration: none;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        z-index: 1000;
-    }
+   
 </style>
 
 <body>
-    <?php include('../layouts/main.php'); ?>
     <a href="#" class="boton-flotante">Arriba</a>
     <div class="containerConf">
         <div class="opcion">
@@ -113,14 +102,6 @@ if (!isset($_SESSION["resultado"])) {
         </ul>
     </div>
 </body>
-<script>
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > 100) {
-            document.body.classList.add("scroll-down");
-        } else {
-            document.body.classList.remove("scroll-down");
-        }
-    });
-</script>
+
 
 </html>

@@ -27,14 +27,14 @@ if (!isset($_SESSION["user_name"])) {
             <select name="tipo" id="tipo">
                 <option value="recurso">Recurso</option>
                 <option value="codebar">codigo de barras</option>
-                <option value="locacion">Localización</option>
+                <option value="locacion" selected>Localización</option>
             </select>
 
             <label for="whscode">whsCod:</label>
             <input type="text" id="whscode" name="whscode" value="ZFP" min="1" required>
 
             <label for="filtro">filtro:</label>
-            <input type="text" id="filtro" name="filtro">
+            <input type="text" id="filtro" value="001.001.01.1" name="filtro">
 
             <button type="submit">Consultar</button>
             <a href="../welcome.php">Salir</a>

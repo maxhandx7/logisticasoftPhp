@@ -9,9 +9,9 @@ class Conexion
 
 	public function __construct($NOMBRE, $PASSWORD)
 	{
-		$this->host = "localhost";
-		$this->database = "C:\\xampp\\htdocs\\logisticasoft\\db\\SERVINETDB-2023-V3.FDB";
-		//$this->database = "C:\\SERVINET-XE11\\SERVINETDB-2023-V3.FDB";
+		$this->host = "192.168.1.115";
+		//$this->database = "C:\\xampp\\htdocs\\logisticasoft\\db\\SERVINETDB-2023-V3.FDB";
+		$this->database = "C:\\SERVINET-XE11\\SERVINETDB-2023-V3.FDB";
 		$this->username = $NOMBRE;
 		$this->password = $PASSWORD;
 	}
