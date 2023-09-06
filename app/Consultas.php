@@ -3,7 +3,7 @@ require_once "datosInicio.php";
 class Consultas
 {
     private $tipo;
-    private $WhsCod;     
+    private $WhsCod;
     private $filtro;
 
     public function __construct($tipo, $WhsCod, $filtro)
@@ -12,10 +12,10 @@ class Consultas
         $this->WhsCod  = $WhsCod;
         $this->filtro  = $filtro;
     }
- 
-  
 
-    public function consultas()
+
+
+    public function consultas(Conexion $Con)
     {
         try {
 
@@ -23,10 +23,13 @@ class Consultas
             $usuario = $datos->obtenerUsuario();
             $contrasena = $datos->obtenerPasswprd();
 
-        $conexion = new Conexion($usuario, $contrasena);
-        $con = $conexion->Conexion();
+            //$conexion = new Conexion($usuario, $contrasena);
+            $conexion = $Con;
+            var_dump($conexion->obtenerConexio());
+                die;
+            $con = $conexion->Conexion();
             if ($this->tipo == "recurso") {
-                $SQL_GET_ALL_INSALDO_RECURSO  = 
+                $SQL_GET_ALL_INSALDO_RECURSO  =
                     'SELECT S.CONUMERO, S.WHSLOC, S.RECURSO, S.RECURSO_SEQ, S.LOTE, S.CLFCOD, S.SALDO, S.QTYRES, S.QTYDIS, S.QTYDIS, S.CLFCOD, R.DRECURSO' .
                     ', S.WhsCod, S.CLIENTE, S.LOTE2, S.LOTE3, S.LOTE4, L.FECPRD, L.FECVEN, S.IDINSALDO, S.CONUMERO, R.UNDMED, R.UNDMEDC, R.UNDMEDFCT ' .
                     'FROM INSALDO S ' .
@@ -113,7 +116,7 @@ class Consultas
             $_SESSION["error"] = 'Error de conexion. ';
             header("Location: ../../resources/consultas/consultar.php");
             exit;
-  //$con = null;
+            //$con = null;
         }
     }
 }

@@ -20,7 +20,7 @@ if (isset($_SESSION["user_name"])) {
 <body>
     <div class="login-container">
         <div class="image-container">
-            <img src="../public/logo.png" alt="Imagen de fondo">
+            <img src="logo.png" alt="Imagen de fondo">
         </div>
         <br>
         <form action="../app/Controlador/login.php" method="post">

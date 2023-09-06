@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $tipo    = $_POST["tipo"];    
     $whscod  = $_POST["whscode"];
-    $cono    = $_POST["cbl"];
     $filtro  = $_POST["filtro"];
 
     if ($whscod == "" || $filtro == "") {
