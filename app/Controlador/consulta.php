@@ -2,6 +2,7 @@
 
 session_start();
 require_once "../Consultas.php";
+/* require_once "../Conexion.php"; */
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -14,7 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../../resources/consultas/consultar.php");
         exit;
     }
-
     $consult = new Consultas($tipo, $whscod, $filtro);
     $consult->consultas();
+}else {
+    $id    = $_GET["id"];  
+
+    $consult = new Consultas(null, null, null);
+
+    
 }

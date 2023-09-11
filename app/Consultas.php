@@ -15,18 +15,14 @@ class Consultas
 
 
 
-    public function consultas(Conexion $Con)
+    public function consultas()
     {
         try {
-
             $datos = new datosInicio();
             $usuario = $datos->obtenerUsuario();
             $contrasena = $datos->obtenerPasswprd();
 
-            //$conexion = new Conexion($usuario, $contrasena);
-            $conexion = $Con;
-            var_dump($conexion->obtenerConexio());
-                die;
+            $conexion = new Conexion($usuario, $contrasena);
             $con = $conexion->Conexion();
             if ($this->tipo == "recurso") {
                 $SQL_GET_ALL_INSALDO_RECURSO  =
@@ -110,13 +106,15 @@ class Consultas
                 header("Location: ../../resources/consultas/show.php");
                 exit;
             }
-            $con = null;
         } catch (PDOException $e) {
 
             $_SESSION["error"] = 'Error de conexion. ';
             header("Location: ../../resources/consultas/consultar.php");
             exit;
-            //$con = null;
         }
+    }
+
+    public function detalles(){
+        
     }
 }

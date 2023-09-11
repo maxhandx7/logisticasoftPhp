@@ -17,16 +17,19 @@ if (!isset($_SESSION["resultado"])) {
     <title>Bienvenido <?php echo  $_SESSION["user_name"]; ?></title>
 </head>
 <style>
-  
-
     .opcion {
         display: flex;
         background-color: #333;
         color: #fff;
-        position: relative;
+        position: fixed;
         justify-content: space-between;
-        text-align: justify;
         align-items: center;
+        top: 0;
+        width: 100%;
+    }
+
+    .containerConf {
+        margin-top: 15%;
     }
 
     h1 {
@@ -34,7 +37,6 @@ if (!isset($_SESSION["resultado"])) {
     }
 
     a {
-
         padding: 2%;
         color: white;
         background-color: red;
@@ -68,17 +70,16 @@ if (!isset($_SESSION["resultado"])) {
     .list-item-details {
         color: #666;
     }
-
-   
 </style>
 
 <body>
-    <a href="#" class="boton-flotante">Arriba</a>
+    <div class="opcion">
+        <h1>Consultas</h1>
+        <a href="#" class="boton-flotante">Arriba</a>
+        <a href="consultar.php" id="salir">Salir</a>
+    </div>
     <div class="containerConf">
-        <div class="opcion">
-            <h1>Consultas</h1>
-            <a href="consultar.php">Salir</a>
-        </div>
+
         <ul class="android-list">
             <?php
             if ($_SESSION["resultado"] == null) {
@@ -88,6 +89,7 @@ if (!isset($_SESSION["resultado"])) {
             foreach ($_SESSION["resultado"] as $result) {
             ?>
                 <li class="list-item">
+                    <form action="../../app/Controlador/consulta.php" method="get">
                     <div class="list-item-content"><?php echo $result['DRECURSO'] ?></div>
                     <div class="list-item-details">Unidad de Medida: <?php echo $result['UNDMED'] ?></div>
                     <div class="list-item-details">Saldo: <strong><?php echo $result['SALDO'] ?></strong> Cant Reservada: <strong><?php echo $result['QTYRES'] ?></strong></div>
@@ -96,6 +98,9 @@ if (!isset($_SESSION["resultado"])) {
                     <div class="list-item-details">Cliente: <?php echo $result['CLIENTE'] ?></div>
                     <div class="list-item-details">Lote: <?php echo $result['LOTE'] ?> Lote 4: <?php echo $result['LOTE4'] ?></div>
                     <div class="list-item-details">ID: <?php echo $result['IDINSALDO'] ?></div>
+                    <input type="hidden" value="<?php echo $result['IDINSALDO'] ?>" name="id">
+                    <button type="submit">ver</button>
+                    </form>
                 </li>
             <?php }
             ?>
