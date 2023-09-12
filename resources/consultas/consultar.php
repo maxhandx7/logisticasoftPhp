@@ -23,18 +23,18 @@ if (!isset($_SESSION["user_name"])) {
     <div class="containerConf">
         <h1>Consultas</h1>
         <form action="../../app/Controlador/consulta.php" method="post">
-            <label for="clb">Consutar por:</label>
+            <label for="clb">Ordenado Por:</label>
             <select name="tipo" id="tipo">
                 <option value="recurso">Recurso</option>
-                <option value="codebar">codigo de barras</option>
-                <option value="locacion" selected>Localización</option>
+                <option value="codebar">Codigo de Barras</option>
+                <option value="locacion" selected>Localización</option>  Whsloc
             </select>
 
-            <label for="whscode">whsCod:</label>
-            <input type="text" id="whscode" name="whscode" value="ZFP" min="1" required>
+            <label for="whscode">WhsCod:</label>
+            <input type="text" id="whscode" name="whscode" value="ZFP" min="1" required>   
 
-            <label for="filtro">filtro:</label>
-            <input type="text" id="filtro" value="001.001.01.1" name="filtro">
+            <label for="filtro">Filtro:</label>
+            <input type="text" id="filtro" value="001.001.01.1" name="filtro">    
 
             <button type="submit">Consultar</button>
             <a href="../welcome.php">Salir</a>

@@ -118,12 +118,17 @@ if (!isset($_SESSION["resultado"])) {
 
                     <div class="list-item-content">
                         <label for="QtyAmover">Cantidad a mover</label>
-                        <input type="number" class="formControl" name="QtyAmover">
+                        <input type="number" class="formControl" value="<?php echo $_SESSION["resultado"][0]['QTYDIS'] ?>" name="QtyAmover">
                     </div>
 
                     <div class="list-item-content">
                         <label for="clfcodto">clfcodto</label>
-                        <input type="text" class="formControl" value="NAL-APROBA" name="clfcodto">
+                        <input type="text" class="formControl" value="<?php echo $_SESSION["resultado"][0]['CLFCOD'] ?>" name="clfcodto">
+                    </div>
+
+                    <div class="list-item-content">
+                        <label for="Lote">Lote</label>
+                        <input type="text" class="formControl" value="<?php echo $_SESSION["resultado"][0]['LOTE'] ?>" name="Lote">
                     </div>
 
                     <div class="list-item-content">
@@ -144,6 +149,7 @@ if (!isset($_SESSION["resultado"])) {
                 echo "";
                 echo "<p style='color:red;'>" . 'No hay datos, intente de nuevo' . "</p>";
             }
+
             foreach ($_SESSION["resultado"] as $result) {
             ?>
                 <li>
