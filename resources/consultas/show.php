@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION["resultado"])) {
+if (!isset($_SESSION["resultados"])) {
     header("Location: ../../public/index.php");
     exit;
 }
@@ -29,7 +29,7 @@ if (!isset($_SESSION["resultado"])) {
     }
 
     .containerConf {
-        margin-top: 15%;
+        margin-top: 10%;
     }
 
     h1 {
@@ -82,14 +82,14 @@ if (!isset($_SESSION["resultado"])) {
 
         <ul class="android-list">
             <?php
-            if ($_SESSION["resultado"] == null) {
+            if ($_SESSION["resultados"] == null) {
                 echo "";
                 echo "<p style='color:red;'>" . 'No hay datos, intente de nuevo' . "</p>";
             }
-            foreach ($_SESSION["resultado"] as $result) {
+            foreach ($_SESSION["resultados"] as $result) {
             ?>
                 <li class="list-item">
-                    <form action="../../app/Controlador/consulta.php" method="get">
+                    <form action="../../app/Controlador/reubicar.php" method="get">
                     <div class="list-item-content"><?php echo $result['DRECURSO'] ?></div>
                     <div class="list-item-details">Unidad de Medida: <?php echo $result['UNDMED'] ?></div>
                     <div class="list-item-details">Saldo: <strong><?php echo $result['SALDO'] ?></strong> Cant Reservada: <strong><?php echo $result['QTYRES'] ?></strong></div>
@@ -97,9 +97,8 @@ if (!isset($_SESSION["resultado"])) {
                     <div class="list-item-details">Fecha Vencimiento:<?php echo $result['FECVEN'] ?></div>
                     <div class="list-item-details">Cliente: <?php echo $result['CLIENTE'] ?></div>
                     <div class="list-item-details">Lote: <?php echo $result['LOTE'] ?> Lote 4: <?php echo $result['LOTE4'] ?></div>
-                    <div class="list-item-details">ID: <?php echo $result['IDINSALDO'] ?></div>
                     <input type="hidden" value="<?php echo $result['IDINSALDO'] ?>" name="id">
-                    <button type="submit">ver</button>
+                    <button type="submit">reubicar</button>
                     </form>
                 </li>
             <?php }

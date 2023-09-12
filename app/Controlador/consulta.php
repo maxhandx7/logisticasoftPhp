@@ -2,11 +2,11 @@
 
 session_start();
 require_once "../Consultas.php";
-/* require_once "../Conexion.php"; */
+$consult = null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $tipo    = $_POST["tipo"];    
+    $tipo    = $_POST["tipo"];
     $whscod  = $_POST["whscode"];
     $filtro  = $_POST["filtro"];
 
@@ -17,10 +17,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $consult = new Consultas($tipo, $whscod, $filtro);
     $consult->consultas();
-}else {
-    $id    = $_GET["id"];  
-
-    $consult = new Consultas(null, null, null);
-
-    
-}
+} 

@@ -45,7 +45,7 @@ class Consultas
                 while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $result[] = $fila;
                 }
-                $_SESSION["resultado"] = $result;
+                $_SESSION["resultados"] = $result;
                 header("Location: ../../resources/consultas/show.php");
                 exit;
             }
@@ -73,7 +73,7 @@ class Consultas
                 while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $result[] = $fila;
                 }
-                $_SESSION["resultado"] = $result;
+                $_SESSION["resultados"] = $result;
                 header("Location: ../../resources/consultas/show.php");
                 exit;
             }
@@ -102,7 +102,7 @@ class Consultas
                 while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $result[] = $fila;
                 }
-                $_SESSION["resultado"] = $result;
+                $_SESSION["resultados"] = $result;
                 header("Location: ../../resources/consultas/show.php");
                 exit;
             }
