@@ -24,6 +24,7 @@ class Consultas
 
             $conexion = new Conexion($usuario, $contrasena);
             $con = $conexion->Conexion();
+            $link = $this->urlReferencia();
             if ($this->tipo == "recurso") {
                 $SQL_GET_ALL_INSALDO_RECURSO  =
                     'SELECT S.CONUMERO, S.WHSLOC, S.RECURSO, S.RECURSO_SEQ, S.LOTE, S.CLFCOD, S.SALDO, S.QTYRES, S.QTYDIS, S.QTYDIS, S.CLFCOD, R.DRECURSO' .
@@ -46,7 +47,11 @@ class Consultas
                     $result[] = $fila;
                 }
                 $_SESSION["resultados"] = $result;
-                header("Location: ../../resources/consultas/show.php");
+                if ($link == "http://192.168.101.27/logisticasoft/resources/consultas/consultar.php") {
+                    header("Location: ../../resources/consultas/show.php");
+                    exit;
+                }
+                header("Location: ../../resources/reubicar/show.php");
                 exit;
             }
             if ($this->tipo == "codebar") {
@@ -74,7 +79,11 @@ class Consultas
                     $result[] = $fila;
                 }
                 $_SESSION["resultados"] = $result;
-                header("Location: ../../resources/consultas/show.php");
+                if ($link == "http://192.168.101.27/logisticasoft/resources/consultas/consultar.php") {
+                    header("Location: ../../resources/consultas/show.php");
+                    exit;
+                }
+                header("Location: ../../resources/reubicar/show.php");
                 exit;
             }
 
@@ -103,18 +112,26 @@ class Consultas
                     $result[] = $fila;
                 }
                 $_SESSION["resultados"] = $result;
-                header("Location: ../../resources/consultas/show.php");
+                if ($link == "http://192.168.101.27/logisticasoft/resources/consultas/consultar.php") {
+                    header("Location: ../../resources/consultas/show.php");
+                    exit;
+                }
+                header("Location: ../../resources/reubicar/show.php");
                 exit;
             }
         } catch (PDOException $e) {
 
-            $_SESSION["error"] = 'Error de conexion. ';
+            $_SESSION["error"] = 'Error de conexion. ' . $e->getMessage();
             header("Location: ../../resources/consultas/consultar.php");
             exit;
         }
     }
 
-    public function detalles(){
-        
+    public function urlReferencia()
+    {
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $paginaAnterior = $_SERVER['HTTP_REFERER'];
+            return $paginaAnterior;
+        }
     }
 }

@@ -29,7 +29,7 @@ if (!isset($_SESSION["resultado"])) {
     }
 
     .containerConf {
-        margin-top: 15%;
+        margin-top: 10%;
     }
 
     h1 {
@@ -70,33 +70,73 @@ if (!isset($_SESSION["resultado"])) {
     .list-item-details {
         color: #666;
     }
+
+    form {
+        text-align: left;
+    }
+
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .formControl {
+        width: 90% !important;
+    }
 </style>
 
 <body>
     <div class="opcion">
         <h1>Detalles</h1>
-        <a href="#" class="boton-flotante">Arriba</a>
-        <a href="show.php" id="salir">Salir</a>
+        <a href="../consultas/show.php" id="salir">Salir</a>
     </div>
     <div class="containerConf">
-
         <ul class="android-list">
             <?php
             if ($_SESSION["resultado"] == null) {
                 echo "";
                 echo "<p style='color:red;'>" . 'No hay datos, intente de nuevo' . "</p>";
             }
+
             foreach ($_SESSION["resultado"] as $result) {
             ?>
                 <li class="list-item">
-                    <div class="list-item-content"><?php echo $result['DRECURSO'] ?></div>
-                    <div class="list-item-details">Unidad de Medida: <?php echo $result['UNDMED'] ?></div>
-                    <div class="list-item-details">Saldo: <strong><?php echo $result['SALDO'] ?></strong> Cant Reservada: <strong><?php echo $result['QTYRES'] ?></strong></div>
-                    <div class="list-item-details">Cant Disponible: <strong><?php echo $result['QTYDIS'] ?></strong></div>
-                    <div class="list-item-details">Fecha Vencimiento:<?php echo $result['FECVEN'] ?></div>
-                    <div class="list-item-details">Cliente: <?php echo $result['CLIENTE'] ?></div>
-                    <div class="list-item-details">Lote: <?php echo $result['LOTE'] ?> Lote 4: <?php echo $result['LOTE4'] ?></div>
-                    <div class="list-item-details">ID: <?php echo $result['IDINSALDO'] ?></div>
+                    <div class="list-item-details">
+                    <div class="list-item-details">CONUMERO: <strong><?php echo $result['CONUMERO'] ?></strong></div>
+                    <div class="list-item-content">WHSLOC: <strong><?php echo $result['WHSLOC'] ?></strong></div>
+                    <div class="list-item-details">RECURSO: <strong><?php echo $result['RECURSO'] ?></strong></div>
+                    <div class="list-item-details">RECURSO_SEQ: <strong><?php echo $result['RECURSO_SEQ'] ?></strong></div>
+                    <div class="list-item-details">LOTE: <strong><?php echo $result['LOTE'] ?></strong></div>
+                    <div class="list-item-details">CLFCOD: <strong><?php echo $result['CLFCOD'] ?></strong></div>
+                    <div class="list-item-details">SALDO: <strong><?php echo $result['SALDO'] ?></strong></div>
+                    <div class="list-item-details">QTYRES: <strong><?php echo $result['QTYRES'] ?></strong></div>
+                    <div class="list-item-details">QTYDIS: <strong><?php echo $result['QTYDIS'] ?></strong></div>
+                    <div class="list-item-details">CLFCOD: <strong><?php echo $result['CLFCOD'] ?></strong></div>
+                    <div class="list-item-details">DRECURSO: <strong><?php echo $result['DRECURSO'] ?></strong></div>
+                    <div class="list-item-details">WhsCod: <strong><?php echo $result['WHSCOD'] ?></strong></div>
+                    <div class="list-item-details">CLIENTE: <strong><?php echo $result['CLIENTE'] ?></strong></div>
+                    <div class="list-item-details">LOTE2: <strong><?php echo $result['LOTE2'] ?></strong></div>
+                    <div class="list-item-details">LOTE3: <strong><?php echo $result['LOTE3'] ?></strong></div>
+                    <div class="list-item-details">LOTE4: <strong><?php echo $result['LOTE4'] ?></strong></div>
+                    <div class="list-item-details">FECPRD: <strong><?php echo $result['FECPRD'] ?></strong></div>
+                    <div class="list-item-details">FECVEN: <strong><?php echo $result['FECVEN'] ?></strong></div>
+                    <div class="list-item-details">IDINSALDO: <strong><?php echo $result['IDINSALDO'] ?></strong></div>
+                    <div class="list-item-details">CONUMERO: <strong><?php echo $result['CONUMERO'] ?></strong></div>
+                    <div class="list-item-details">UNDMED: <strong><?php echo $result['UNDMED'] ?></strong></div>
+                    <div class="list-item-details">UNDMEDC: <strong><?php echo $result['UNDMEDC'] ?></strong></div>
+                    <div class="list-item-details">UNDMEDFCT: <strong><?php echo $result['UNDMEDFCT'] ?></strong></div>
+
+                    </div>
                 </li>
             <?php }
             ?>

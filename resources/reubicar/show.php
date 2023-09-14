@@ -74,9 +74,9 @@ if (!isset($_SESSION["resultados"])) {
 
 <body>
     <div class="opcion">
-        <h1>Consultas</h1>
+        <h1>Reubicar</h1>
         <a href="#" class="boton-flotante">Arriba</a>
-        <a href="consultar.php" id="salir">Salir</a>
+        <a href="consulta.php" id="salir">Salir</a>
     </div>
     <div class="containerConf">
 
@@ -98,8 +98,7 @@ if (!isset($_SESSION["resultados"])) {
                     <div class="list-item-details">Cliente: <?php echo $result['CLIENTE'] ?></div>
                     <div class="list-item-details">Lote: <?php echo $result['LOTE'] ?> Lote 4: <?php echo $result['LOTE4'] ?></div>
                     <input type="hidden" value="<?php echo $result['IDINSALDO'] ?>" name="id">
-                    <input type="hidden" value="1" name="show">
-                    <button type="submit">ver</button>
+                    <button type="submit">reubicar</button>
                     </form>
                 </li>
             <?php }

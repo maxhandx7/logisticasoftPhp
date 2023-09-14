@@ -6,6 +6,7 @@ require_once "../Reubica.php";
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $id    = $_GET["id"];
+    $show    = $_GET["show"];
 
     $_SESSION["id"] = $id;
     $datos = new datosInicio();
@@ -33,10 +34,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $result[] = $fila;
     }
     $_SESSION["resultado"] = $result;
-    header("Location: ../../resources/reubicar/reubicar.php");
+    if (isset($show) == 1) {
+        header("Location: ../../resources/consultas/details.php");
     exit;
+    }else {
+        header("Location: ../../resources/reubicar/reubicar.php");
+        exit; 
+    }
+    
 } else {
-    $barcode    = $_POST["barcode"];
+    $id    = $_POST["id"];
+    $barcode    = $_POST["barCode"];
     $QtyAmover  = $_POST["QtyAmover"];
     $clfcodto  = $_POST["clfcodto"];
     $whslocto  = $_POST["whslocto"];
@@ -44,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $consult = new Reubica();
     $consult->reubicar(
+        $id,
         $barcode,
         $QtyAmover,
         $clfcodto,

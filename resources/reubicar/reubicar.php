@@ -98,7 +98,7 @@ if (!isset($_SESSION["resultado"])) {
 <body>
     <div class="opcion">
         <h1>Reubicar</h1>
-        <a href="../consultas/show.php" id="salir">Salir</a>
+        <a href="show.php" id="salir">Salir</a>
     </div>
     <div class="containerConf">
 
@@ -108,8 +108,6 @@ if (!isset($_SESSION["resultado"])) {
                     <div class="list-item-content">
                         <input type="hidden" name="id" value="<?php echo $_SESSION["id"] ?>">
                     </div>
-
-
 
                     <div class="list-item-content">
                         <label for="barcode">Codigo de barras</label>

@@ -27,7 +27,7 @@ if (!isset($_SESSION["user_name"])) {
             </a>
         </div>
         <div class="widget">
-            <a href="reubicar.php">
+            <a href="reubicar/consulta.php">
                 <h2>Reubicar</h2>
                 <p>Reubicar producto</p>
             </a>
