@@ -35,21 +35,19 @@ if (!isset($_SESSION["user_name"])) {
             <input type="text" id="whscode" name="whscode" value="ZFP" min="1" required>
 
             <label for="filtro">Filtro:</label>
-            <input type="text" id="filtro"  name="filtro">
+            <input type="text" id="filtro" name="filtro">
 
             <button type="submit">Consultar</button>
             <a href="../welcome.php">Salir</a>
         </form>
         <?php
-        if (isset($_SESSION["error"]) != null) {
+        if (isset($_SESSION["error"])) {
             echo "<p style='color:red;'>" . $_SESSION["error"] . "</p>";
             $_SESSION["error"] = "";
-            exit;
-        } 
-        if (isset($_SESSION["success"]) != null) {
+        }
+        if (isset($_SESSION["success"])) {
             echo "<p style='color:green;'>" . $_SESSION["success"] . "</p>";
             $_SESSION["success"] = "";
-            exit;
         }
         ?>
     </div>

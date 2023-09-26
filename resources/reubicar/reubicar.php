@@ -116,7 +116,7 @@ if (!isset($_SESSION["resultado"])) {
 
                     <div class="list-item-content">
                         <label for="QtyAmover">Cantidad a mover</label>
-                        <input type="number" class="formControl" value="<?php echo $_SESSION["resultado"][0]['QTYDIS'] ?>" name="QtyAmover">
+                        <input type="number" class="formControl" placeholder="<?php echo $_SESSION["resultado"][0]['QTYDIS'] ?>" name="QtyAmover">
                     </div>
 
                     <div class="list-item-content">
